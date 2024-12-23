@@ -1,6 +1,6 @@
 # Introduction 
 
-Hey, I am a Raspberry PI enthousiaste!
+Hey, I am a Raspberry PI (and a GraalVM) enthusiast!
 
 This a sample project to demonstrate how to build a Spring Boot Docker image for `arm64` architecture.
 It produces a `linux/arm64` ready docker image, and can be run on a Raspberry Pi for example. In my case, it even runs on a `Raspberry Pi Zero 2 W`, which is insane.

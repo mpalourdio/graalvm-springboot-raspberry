@@ -7,15 +7,15 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.mpalourdio.graalvmspringbootraspberry;
+package com.mpalourdio.graalvmspringbootraspberry
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
 @SpringBootApplication
-public class GraalVMSpringBootRaspberryApplication {
+class GraalVMSpringBootRaspberryApplication
 
-    public static void main(String[] args) {
-        SpringApplication.run(GraalVMSpringBootRaspberryApplication.class, args);
-    }
+fun main(args: Array<String>) {
+    runApplication<GraalVMSpringBootRaspberryApplication>(*args)
 }
+
