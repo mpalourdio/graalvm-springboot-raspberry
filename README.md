@@ -1,3 +1,5 @@
+[![CI](https://github.com/mpalourdio/graalvm-springboot-raspberry/actions/workflows/main.yml/badge.svg)](https://github.com/mpalourdio/graalvm-springboot-raspberry/actions/workflows/main.yml)
+
 # Introduction 
 
 Hey, I am a Raspberry PI (and a GraalVM) enthusiast!
