@@ -17,7 +17,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <spring-boot.build-image.imagePlatform>linux/arm64</spring-boot.build-image.imagePlatform>
+        <!-- spring-boot.build-image.imagePlatform>linux/arm64</spring-boot.build-image.imagePlatform -->
     </properties>
 
     <dependencies>
