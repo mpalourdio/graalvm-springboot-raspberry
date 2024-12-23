@@ -7,8 +7,9 @@ GraalVM needs at least 512 MB to run, which was not possible on the Raspberry pi
 
 # Steps
 
-- Install QEMU once & for all : `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`.
-- Build the code for `arm` archictecture : `mvn clean -Pnative spring-boot:build-image -Dspring-boot.build-image.imagePlatform=linux/arm64`.
+- Install QEMU : `docker run --privileged --rm tonistiigi/binfmt --install all` / `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`.
+- Valide that it works: `docker run --platform=linux/arm64/v8 --rm -t arm64v8/ubuntu uname -m`. It should return `aarch64`.
+- Build the code for `arm` archictecture : `mvn clean -Pnative spring-boot:build-image (-Dspring-boot.build-image.imagePlatform=linux/arm64)`.
 - Drink some coffee, learn haskell, build linux from scratch, or just wait for the build to finish.
 - Save the image : `docker save -o raspberry.tar graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
 - Move the image to the target host : `scp raspberry.tar pi@192.168.X.X:wherever/`.
