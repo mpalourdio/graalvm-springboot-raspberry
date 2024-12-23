@@ -8,14 +8,18 @@
         <version>3.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+
+    <groupId>com.mpalourdio.projects</groupId>
+    <artifactId>graalvm-springboot-raspberry</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>Graalvm - Spring Boot - Raspberry</name>
+    <description>Sample application that compiles and produces an arm64 docker image</description>
+
     <properties>
         <java.version>21</java.version>
+        <spring-boot.build-image.imagePlatform>linux/arm64</spring-boot.build-image.imagePlatform>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -50,5 +54,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
