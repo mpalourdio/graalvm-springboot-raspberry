@@ -1,16 +1,18 @@
 # Introduction 
 
-This a sample project to demonstrate how to build a Spring Boot Docker image for ARM64 architecture.
-It just works, produces a docker image `linux/arm64` and can be ran on a Raspberry Pi. In my case, it even runs on a `pi0w2` o_O.
+Hey, I am a Raspberry PI enthousiaste!
 
-GraalVM needs at least 512 MB to run, which was not possible on the Raspberry pi0W2. so I had to produce a `linux/arm64` image from a `linux/amd64` host.
+This a sample project to demonstrate how to build a Spring Boot Docker image for `arm64` architecture.
+It produces a `linux/arm64` ready docker image, and can be run on a Raspberry Pi for example. In my case, it even runs on a `Raspberry Pi Zero 2 W`, which is insane.
+
+GraalVM needs at least `512 MB` to run, what is not possible on the `Raspberry Pi Zero 2 W`. So I had to produce a `linux/arm64` image from a `linux/amd64` host.
 
 # Steps
 
 - Install QEMU : `docker run --privileged --rm tonistiigi/binfmt --install all` / `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`.
 - Valide that it works: `docker run --platform=linux/arm64/v8 --rm -t arm64v8/ubuntu uname -m`. It should return `aarch64`.
-- Build the code for `arm` archictecture : `mvn clean -Pnative spring-boot:build-image -Dspring-boot.build-image.imagePlatform=linux/arm64`.
-- Drink some coffee, learn haskell, build linux from scratch, or just wait for the build to finish.
+- Build the code for `arm64` architecture : `mvn clean -Pnative spring-boot:build-image -Dspring-boot.build-image.imagePlatform=linux/arm64`.
+- Drink some coffee, learn haskell, build linux from scratch, or just wait for the build to finish. It will take some time.
 - Save the image : `docker save -o /tmp/raspberry.tar docker.io/library/graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
 - Move the image to the target host : `scp /tmp/raspberry.tar pi@192.168.X.X:wherever/`.
 - On the target host : `docker load -i wherever/raspberry.tar`.
@@ -20,6 +22,6 @@ GraalVM needs at least 512 MB to run, which was not possible on the Raspberry pi
 
 Kudos to [@dashaun](https://github.com/dashaun/) for the inspiration. Check this blog post [here](https://dashaun.com/2021/06/17/building-a-graalvm-native-image-for-arm64-on-amd64/).
 
-# Image ready to use ?
+# Image ready to test ?
 
-Just grab [this image generated from GitHub actions](https://mpalourdio.github.io/graalvm-springboot-raspberry/raspberry.tar)
+Just grab [this image generated from GitHub actions](https://mpalourdio.github.io/graalvm-springboot-raspberry/raspberry.tar).
