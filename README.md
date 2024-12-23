@@ -11,11 +11,15 @@ GraalVM needs at least 512 MB to run, which was not possible on the Raspberry pi
 - Valide that it works: `docker run --platform=linux/arm64/v8 --rm -t arm64v8/ubuntu uname -m`. It should return `aarch64`.
 - Build the code for `arm` archictecture : `mvn clean -Pnative spring-boot:build-image (-Dspring-boot.build-image.imagePlatform=linux/arm64)`.
 - Drink some coffee, learn haskell, build linux from scratch, or just wait for the build to finish.
-- Save the image : `docker save -o raspberry.tar graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
-- Move the image to the target host : `scp raspberry.tar pi@192.168.X.X:wherever/`.
-- On the target host : `docker load -i raspberry.tar`.
+- Save the image : `docker save -o /tmp/raspberry.tar docker.io/library/graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
+- Move the image to the target host : `scp /tmp/raspberry.tar pi@192.168.X.X:wherever/`.
+- On the target host : `docker load -i wherever/raspberry.tar`.
 - Run the image : `docker run -p 8080:8080 -it graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
 
 # Thanks
 
 Kudos to [@dashaun](https://github.com/dashaun/) for the inspiration. Check this blog post [here](https://dashaun.com/2021/06/17/building-a-graalvm-native-image-for-arm64-on-amd64/).
+
+# Image ready to use ?
+
+Just grab [this image generated from GitHub actions](https://mpalourdio.github.io/graalvm-springboot-raspberry/raspberry.tar)
