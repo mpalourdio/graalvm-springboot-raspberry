@@ -12,8 +12,8 @@ GraalVM needs at least `512 MB` to run, what is not possible on the `Raspberry P
 # Steps
 
 - Install QEMU : `docker run --privileged --rm tonistiigi/binfmt --install all` / `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`.
-- Valide that it works: `docker run --platform=linux/arm64/v8 --rm -t arm64v8/ubuntu uname -m`. It should return `aarch64`.
-- Build the code for `arm64` architecture : `mvn clean -Pnative spring-boot:build-image -Dspring-boot.build-image.imagePlatform=linux/arm64`.
+- Validate that it works: `docker run --platform=linux/arm64 --rm -t arm64v8/ubuntu uname -m`. It should return `aarch64`.
+- Build the image for `arm64` architecture : `mvn clean -Pnative spring-boot:build-image -Dspring-boot.build-image.imagePlatform=linux/arm64`.
 - Drink some coffee, learn haskell, build linux from scratch, or just wait for the build to finish. It will take some time.
 - Save the image : `docker save -o /tmp/raspberry.tar docker.io/library/graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
 - Move the image to the target host : `scp /tmp/raspberry.tar pi@192.168.X.X:wherever/`.
@@ -22,7 +22,7 @@ GraalVM needs at least `512 MB` to run, what is not possible on the `Raspberry P
 
 # Thanks
 
-Kudos to [@dashaun](https://github.com/dashaun/) for the inspiration. Check this blog post [here](https://dashaun.com/2021/06/17/building-a-graalvm-native-image-for-arm64-on-amd64/).
+Kudos to [@dashaun](https://github.com/dashaun/) for the inspiration. Check this blog post [here](https://dashaun.com/posts/multi-architecture-spring-oci-from-anywhere-with-paketo/).
 
 # Image ready to test ?
 
