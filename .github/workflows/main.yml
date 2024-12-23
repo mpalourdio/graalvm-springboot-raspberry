@@ -27,13 +27,13 @@ jobs:
         run: ./mvnw clean -Pnative spring-boot:build-image -Dspring-boot.build-image.imagePlatform=linux/arm64
 
       - name: Backup image and move it to tmp folder
-        run: docker save -o /tmp/raspberry.tar docker.io/library/graalvm-springboot-raspberry:0.0.1-SNAPSHOT
+        run: mkdir imagebackup && docker save -o imagebackup/raspberry.tar docker.io/library/graalvm-springboot-raspberry:0.0.1-SNAPSHOT
 
       - name: Upload GitHub Pages artifact
         if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'tmp'
+          path: 'imagebackup'
 
   deploy:
     needs: build
