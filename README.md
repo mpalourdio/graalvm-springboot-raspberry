@@ -27,3 +27,7 @@ Kudos to [@dashaun](https://github.com/dashaun/) for the inspiration. Check this
 # Image ready to test ?
 
 Just grab [this image generated from GitHub actions](https://mpalourdio.github.io/graalvm-springboot-raspberry/raspberry.tar).
+
+# Failed to create the main Isolate. (code 24) ?
+
+Follow [these instructions](https://pimylifeup.com/raspberry-pi-page-size/) for Raspberry PI 5.
