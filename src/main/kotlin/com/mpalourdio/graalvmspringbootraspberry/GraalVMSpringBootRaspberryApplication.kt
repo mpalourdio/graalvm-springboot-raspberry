@@ -14,7 +14,6 @@ import org.springframework.boot.runApplication
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
-import java.net.InetAddress
 
 @SpringBootApplication
 @Controller
@@ -22,8 +21,7 @@ class GraalVMSpringBootRaspberryApplication {
 
     @GetMapping("/")
     fun indexAction(model: Model): String {
-        val hostname = InetAddress.getLocalHost().hostName;
-        model.addAttribute("hostname", hostname)
+        model.addAttribute("hostname", System.getenv("HOSTNAME"))
         return "index"
     }
 }
