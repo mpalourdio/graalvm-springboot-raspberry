@@ -4,12 +4,12 @@
 
 Hey, I am a Raspberry PI (and a GraalVM) enthusiast!
 
-This a sample project to demonstrate how to build a Spring Boot Docker image for `arm64` architecture.
+This a sample project to demonstrate how to build a Spring Boot / GraalVM Docker image for `arm64` architecture.
 It produces a `linux/arm64` ready docker image, and can be run on a Raspberry Pi for example. In my case, it even runs on a `Raspberry Pi Zero 2 W`, which is insane.
 
-GraalVM needs at least `512 MB` to run, what is not possible on the `Raspberry Pi Zero 2 W`. So I had to produce a `linux/arm64` image from a `linux/amd64` host.
+GraalVM needs at least `512 MB` to run, what is not possible on the `Raspberry Pi Zero 2 W`. So I had to produce a `linux/arm64` from `GitHub actions`.
 
-# Steps
+# Steps for building a `linux/arm64` docker image from a `linux/amd64` host
 
 - Install QEMU : `docker run --privileged --rm tonistiigi/binfmt --install all` / `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`.
 - Validate that it works: `docker run --platform=linux/arm64 --rm -t arm64v8/ubuntu uname -m`. It should return `aarch64`.
@@ -26,7 +26,8 @@ Kudos to [@dashaun](https://github.com/dashaun/) for the inspiration. Check this
 
 # Image ready to test ?
 
-Just grab [this image generated from GitHub actions](https://mpalourdio.github.io/graalvm-springboot-raspberry/raspberry.tar).
+Just grab [this image generated from GitHub actions](https://mpalourdio.github.io/graalvm-springboot-raspberry/raspberry.tar).  
+[Starting January 2025, GitHub actions provide arm64 runners](https://github.com/orgs/community/discussions/19197#discussioncomment-11859757). This drastically improves build time.
 
 # Failed to create the main Isolate. (code 24) ?
 
