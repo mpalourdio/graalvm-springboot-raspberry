@@ -18,7 +18,7 @@ GraalVM needs at least `512 MB` to run, what is not possible on the `Raspberry P
 - Save the image : `docker save -o /tmp/raspberry.tar docker.io/library/graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
 - Move the image to the target host : `scp /tmp/raspberry.tar pi@192.168.X.X:wherever/`.
 - On the target host : `docker load -i wherever/raspberry.tar`.
-- Run the image : `docker run -p 8080:8080 -it graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
+- Run the image : `docker run -p 8080:8080 --hostname=${HOSTNAME} -it graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
 
 # Thanks
 
