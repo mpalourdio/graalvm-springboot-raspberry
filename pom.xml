@@ -61,6 +61,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>ghcr.io/mpalourdio/graalvm-springboot-raspberry:latest</name>
+                    </image>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

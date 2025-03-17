@@ -15,10 +15,10 @@ GraalVM needs at least `512 MB` to run, what is not possible on the `Raspberry P
 - Validate that it works: `docker run --platform=linux/arm64 --rm -t arm64v8/ubuntu uname -m`. It should return `aarch64`.
 - Build the image for `arm64` architecture : `mvn clean -Pnative spring-boot:build-image -Dspring-boot.build-image.imagePlatform=linux/arm64`.
 - Drink some coffee, learn haskell, build linux from scratch, or just wait for the build to finish. It will take some time.
-- Save the image : `docker save -o /tmp/raspberry.tar docker.io/library/graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
+- Save the image : `docker save -o /tmp/raspberry.tar docker pull ghcr.io/mpalourdio/graalvm-springboot-raspberry:latest`.
 - Move the image to the target host : `scp /tmp/raspberry.tar pi@192.168.X.X:wherever/`.
 - On the target host : `docker load -i wherever/raspberry.tar`.
-- Run the image : `docker run -p 8080:8080 --hostname=${HOSTNAME} -it graalvm-springboot-raspberry:0.0.1-SNAPSHOT`.
+- Run the image : `docker run -p 8080:8080 --hostname=${HOSTNAME} -it ghcr.io/mpalourdio/graalvm-springboot-raspberry:latest`.
 
 # Thanks
 
@@ -26,7 +26,7 @@ Kudos to [@dashaun](https://github.com/dashaun/) for the inspiration. Check this
 
 # Image ready to test ?
 
-Just grab [this image generated from GitHub actions](https://mpalourdio.github.io/graalvm-springboot-raspberry/raspberry.tar).  
+`docker pull ghcr.io/mpalourdio/graalvm-springboot-raspberry:latest`.  
 [Starting January 2025, GitHub actions provide arm64 runners](https://github.com/orgs/community/discussions/19197#discussioncomment-11859757). This drastically improves build time.
 
 # Failed to create the main Isolate. (code 24) ?
