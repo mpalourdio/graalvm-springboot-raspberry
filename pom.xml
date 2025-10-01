@@ -64,6 +64,9 @@
                 <configuration>
                     <image>
                         <name>ghcr.io/mpalourdio/graalvm-springboot-raspberry:latest</name>
+                        <env>
+                            <BP_NATIVE_IMAGE_BUILD_ARGUMENTS>-march=compatibility</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
+                        </env>
                     </image>
                 </configuration>
                 <executions>
