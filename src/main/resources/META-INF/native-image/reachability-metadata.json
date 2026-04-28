@@ -1,0 +1,43 @@
+{
+  "reflection": [
+    {
+      "type": "tools.jackson.databind.json.JsonMapper",
+      "methods": [
+        {
+          "name": "builder",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "tools.jackson.databind.cfg.MapperBuilder",
+      "methods": [
+        {
+          "name": "defaultDateFormat",
+          "parameterTypes": [
+            "java.text.DateFormat"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tools.jackson.databind.cfg.MapperBuilder",
+      "methods": [
+        {
+          "name": "findAndAddModules",
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "type": "tools.jackson.databind.json.JsonMapper$Builder",
+      "methods": [
+        {
+          "name": "build",
+          "parameterTypes": []
+        }
+      ]
+    }
+
+  ]
+}
